@@ -3,7 +3,7 @@
   import { color } from "./lib/color";
   import type { Page } from "./lib/Page";
   import { Page_Menu } from "./lib/Page_Menu";
-    import { Game } from "./lib/Game";
+  import { Game } from "./lib/Game";
 
   let canvas: HTMLCanvasElement;
   let ctx: CanvasRenderingContext2D;

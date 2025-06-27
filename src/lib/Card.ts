@@ -6,6 +6,7 @@ export class Card {
     name: string = "Card";
     type: Card_Type = Card_Type.Creature;
     rarity: Card_Rarity;
+    serial_number: number;
 
     width: number = 550;
     height: number = 900;
@@ -14,7 +15,8 @@ export class Card {
     down_name: string = "";
     font_size: number = 15;
 
-    constructor(rarity: Card_Rarity) {
+    constructor(rarity: Card_Rarity, serial_number: number) {
+        this.serial_number = serial_number;
         this.rarity = rarity;
         this.define_name();
     };
@@ -46,6 +48,7 @@ export class Card {
         this.draw_name(ctx, x, y, ratio);
         this.draw_icon(ctx, x + (this.border_width) * ratio, y + (this.border_width + 50) * ratio, ratio);
         this.draw_type(ctx, x, y, ratio);
+        this.draw_extension_info(ctx, x, y, ratio);
     };
 
     draw_border(ctx: CanvasRenderingContext2D, x: number, y: number, ratio: number = 1) {
@@ -99,5 +102,11 @@ export class Card {
         ctx.font = "bold " + (20 * ratio) + "px serif";
         ctx.fillStyle = color.black;
         ctx.fillText(this.type.toUpperCase(), x + (this.border_width + 10) * ratio, y + (this.border_width + 50 + 500 + 20) * ratio);
+    };
+
+    draw_extension_info(ctx: CanvasRenderingContext2D, x: number, y: number, ratio: number = 1) {
+        ctx.font = "bold " + (20 * ratio) + "px serif";
+        ctx.fillStyle = color.black;
+        ctx.fillText(this.serial_number + "/100", x + (this.border_width + 10) * ratio, y + (this.height - this.border_width + 20) * ratio);
     };
 }

@@ -1,7 +1,7 @@
 import type { Game } from "./Game";
 
 export class Page {
-    key_handler(input:string, page:Page) {
+    key_handler(input:string, game:Game, page:Page) {
         return page;
     };
 

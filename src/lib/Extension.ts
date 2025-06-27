@@ -7,17 +7,17 @@ export class Extension {
 
     constructor() {
         for (let i = 0; i < 50; i++) {
-            this.card_list.push(new Card(Card_Rarity.Common));
+            this.card_list.push(new Card(Card_Rarity.Common, i + 1));
         }
         for (let i = 0; i < 33; i++) {
-            this.card_list.push(new Card(Card_Rarity.Uncommon));
+            this.card_list.push(new Card(Card_Rarity.Uncommon, 51 + i));
         }
         for (let i = 0; i < 11; i++) {
-            this.card_list.push(new Card(Card_Rarity.Rare));
+            this.card_list.push(new Card(Card_Rarity.Rare, 84 + i));
         }
         for (let i = 0; i < 5; i++) {
-            this.card_list.push(new Card(Card_Rarity.Legendary));
+            this.card_list.push(new Card(Card_Rarity.Legendary, 95 + i));
         }
-        this.card_list.push(new Card(Card_Rarity.Mythic));
+        this.card_list.push(new Card(Card_Rarity.Mythic, 100));
     };
 };
