@@ -1,4 +1,5 @@
 export enum Card_Type {
-    Creature = "Creature",
-    Spell = "Spell",
+    CREATURE = "Creature",
+    SPELL = "Spell",
+    ITEM = "Item",
 };

@@ -1,8 +1,8 @@
 export enum Card_Rarity {
-    Common = "C",
-    Uncommon = "UC",
-    Rare = "R",
-    Epic = "E",
-    Legendary = "L",
-    Mythic = "M",
+    COMMON = "C",
+    UNCOMMON = "UC",
+    RARE = "R",
+    EPIC = "E",
+    LEGENDARY = "L",
+    MYTHIC = "M",
 };

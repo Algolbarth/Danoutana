@@ -1,12 +1,14 @@
+import type { Card_Color } from "./CardColor";
 import { Card_Rarity } from "./CardRarity";
 import { Card_Type } from "./CardType";
 import { color } from "./color";
 
 export class Card {
     name: string = "Card";
-    type: Card_Type = Card_Type.Creature;
+    type: Card_Type = Card_Type.ITEM;
     rarity: Card_Rarity;
     serial_number: number;
+    color: Card_Color;
 
     width: number = 550;
     height: number = 900;
@@ -15,9 +17,11 @@ export class Card {
     down_name: string = "";
     font_size: number = 15;
 
-    constructor(rarity: Card_Rarity, serial_number: number) {
+    constructor(rarity: Card_Rarity, serial_number: number, color: Card_Color) {
         this.serial_number = serial_number;
         this.rarity = rarity;
+        this.color = color;
+        this.name = this.color + " " + this.name;
         this.define_name();
     };
 
@@ -93,6 +97,25 @@ export class Card {
     draw_icon(ctx: CanvasRenderingContext2D, x: number, y: number, ratio: number = 1) {
         ctx.fillStyle = color.white;
         ctx.fillRect(x, y, 500 * ratio, 500 * ratio);
+
+        switch (this.color) {
+            case "Red":
+                ctx.fillStyle = color.red;
+                break;
+            case "Green":
+                ctx.fillStyle = color.green;
+                break;
+            case "Blue":
+                ctx.fillStyle = color.blue;
+                break;
+            case "White":
+                ctx.fillStyle = color.yellow;
+                break;
+            case "Black":
+                ctx.fillStyle = color.black;
+                break;
+        }
+        ctx.fillRect(x + 150 * ratio, y + 150 * ratio, 200 * ratio, 200 * ratio);
     };
 
     draw_type(ctx: CanvasRenderingContext2D, x: number, y: number, ratio: number = 1) {
