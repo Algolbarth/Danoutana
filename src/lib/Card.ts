@@ -5,16 +5,21 @@ import { color } from "./color";
 export class Card {
     name: string = "Card";
     type: Card_Type = Card_Type.Creature;
-    rarity: Card_Rarity = Card_Rarity.Mythic;
+    rarity: Card_Rarity;
 
     width: number = 550;
     height: number = 900;
     border_width: number = 25;
     up_name: string = "";
     down_name: string = "";
-    font_size: number;
+    font_size: number = 15;
 
-    constructor() {
+    constructor(rarity: Card_Rarity) {
+        this.rarity = rarity;
+        this.define_name();
+    };
+
+    define_name() {
         let name_split = this.name.split(" ");
         let down = false;
         for (const part of name_split) {

@@ -3,21 +3,23 @@
   import { color } from "./lib/color";
   import type { Page } from "./lib/Page";
   import { Page_Menu } from "./lib/Page_Menu";
+    import { Game } from "./lib/Game";
 
   let canvas: HTMLCanvasElement;
   let ctx: CanvasRenderingContext2D;
   let fps: number = 60;
   let page: Page = new Page_Menu();
+  let game: Game = new Game();
 
   function step() {
     ctx.fillStyle = color.black;
     ctx.fillRect(0, 0, 1920, 1080);
 
-    page.draw(ctx);
+    page.draw(ctx, game);
   }
 
   function key_handler(e: any) {
-    page = page.key_handler(e.key, page);
+    page = page.key_handler(e.key, game, page);
   }
 
   onMount(() => {
